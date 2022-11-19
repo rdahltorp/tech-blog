@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User } = require('../../models');
+const { User, Post } = require('../../models');
 
 //Render sign up page
 router.get('/signup', async (req, res) => {
@@ -65,6 +65,26 @@ router.post('/login', async (req, res) => {
 
   } catch (err) {
     res.status(400).json(err);
+  }
+});
+
+//See user profile/dash while signed in as that user. 
+router.get('/dashboard', withAuth, async (req,res) => {
+  try {
+    //If not working, try req.session.id
+    const userData = await User.findByPk(req.session.user_id, {
+      attributes: { exclude: ['password'] },
+      include: [{ model: Post }],
+    });
+
+    const user = userData.get({ plain: true });
+
+    res.render('dashboard', {
+      ...user,
+      logged_in: true
+    });
+  } catch (error) {
+    res.status(500).json(error)
   }
 });
 
