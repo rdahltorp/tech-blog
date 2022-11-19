@@ -21,4 +21,13 @@ router.get('/', async (req, res) => {
     }
 })
 
+//Need a route for specific blog posts. /:id
+
+
+//Need a route for profile dashboard that shows all blog posts form that user
+
+
+
+
+
 module.exports = router
