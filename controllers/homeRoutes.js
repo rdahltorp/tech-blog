@@ -22,6 +22,36 @@ router.get('/', async (req, res) => {
 })
 
 //Need a route for specific blog posts. /:id
+router.get('/post/:id', async (req, res) => {
+    try {
+        const postData = await Post.findByPk(req.params.id, {
+            include: [
+                {
+                    model: User,
+                    attributes: ['username']
+                },
+                {
+                    model: Comment,
+                    attributes: ['description', 'date_created'],
+                    include: [
+                        {                        
+                            model: User,
+                            attributes: ['username']
+                        }
+                    ]
+                },
+            ]
+        });
+
+        const post = postData.get({ plain: true });
+
+        res.render('post', {
+            ...post
+        });
+    } catch (error) {
+        res.status(500).json(error)
+    }
+})
 
 
 //Need a route for profile dashboard that shows all blog posts form that user
