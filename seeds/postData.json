@@ -1,10 +1,12 @@
 [
     {
         "title": "I am learning to code",
-        "description": "Hi! I am in a bootcamp learning how to be a fullstack developer. It is tough but I enjoy it I think!"
+        "description": "Hi! I am in a bootcamp learning how to be a fullstack developer. It is tough but I enjoy it I think!",
+        "user_id": 1
     },
     {
         "title": "Backend is crazy",
-        "description": "Between handlebars, authentication, and more, it is all like magic!" 
+        "description": "Between handlebars, authentication, and more, it is all like magic!", 
+        "user_id": 1
     }
 ]

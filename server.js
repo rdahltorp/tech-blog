@@ -1,28 +1,29 @@
-//Added boilerplate below, will need to adjust. 
-
 const path = require('path');
 const express = require('express');
-// Import express-session
 const session = require('express-session');
 const exphbs = require('express-handlebars');
-
+const helpers = require('./utils/helpers')
 const routes = require('./controllers');
+
 const sequelize = require('./config/connection');
-const helpers = require('./utils/helpers');
+const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-// Set up sessions
+const hbs = exphbs.create({ helpers });
+
 const sess = {
-  secret: 'Techy Blogger and the chamber of secrets',
+  secret: 'Super secret secret',
+  cookie: {},
   resave: false,
   saveUninitialized: true,
+  store: new SequelizeStore({
+    db: sequelize
+  })
 };
 
 app.use(session(sess));
-
-const hbs = exphbs.create({ helpers });
 
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
