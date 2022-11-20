@@ -1,0 +1,19 @@
+<div>
+    {{#if posts.length}}
+
+        {{#each posts as |post|}}
+        <div>
+            <div>
+                <h2><a href="/post/{{post.id}}">{{post.title}}</a></h2>
+                <p>Posted by: {{post.user.username}} on {{post.date_created}}</p>
+            </div>
+            <div>
+                <p>{{post.description}}</p>
+            </div>
+        </div>
+        {{/each}}
+    {{/if}}
+    <div>
+        <button>Add Post</button>
+    </div>
+</div>

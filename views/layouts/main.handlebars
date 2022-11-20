@@ -11,12 +11,12 @@
     <header>
         <h1>Tech Blog</h1>
         <nav>
-            <button href="/homepage">Home</button>
-            <button href="/dashboard">Dashboard</button>
+            <button><a href="/">Home</a></button>
+            <button><a href="/api/users/dashboard">Dashboard</a></button>
             {{#if logged_in}}
-            <button href="/users/logout">Logout</button>
+            <button><a href="/api/users/logout">Logout</a></button>
             {{else}}
-            <button href="/login">Login</button>
+            <button><a href="/api/users/login">Login</a></button>
             {{/if}}
         </nav>
     </header>

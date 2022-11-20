@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { User, Post } = require('../../models');
+const withAuth = require('../../utils/auth')
 
 //Render sign up page
 router.get('/signup', async (req, res) => {
