@@ -14,7 +14,7 @@
             <button><a href="/">Home</a></button>
             <button><a href="/api/users/dashboard">Dashboard</a></button>
             {{#if logged_in}}
-            <button><a href="/api/users/logout">Logout</a></button>
+            <button id="logout"><a href="/api/users/logout">Logout</a></button>
             {{else}}
             <button><a href="/api/users/login">Login</a></button>
             {{/if}}
@@ -24,6 +24,11 @@
     <main>
         {{{body}}}
     </main>
+    <footer>
+    </footer>
     
+    {{#if logged_in}}
+    <script src="../../public/js/logout.js"></script>
+    {{/if}}
 </body>
 </html>
