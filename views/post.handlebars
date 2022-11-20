@@ -21,6 +21,14 @@
 
 {{#if logged_in}}
 <div>
-    <button href="">Add a Comment</button>
+    <form class="comment-form">
+        <div>
+            <label for="description">Comment: </label>
+            <input type="text" name="description" id="commentDesc">
+        </div>
+        <div>
+            <button href="">Add a Comment</button>
+        </div>
+    </form>
 </div>
 {{/if}}
