@@ -1,7 +1,7 @@
 <div>
     <div>
         <h2>{{title}}</h2>
-        <p>Posted by: {{user.username}} on {{date_created}}</p>
+        <p>Posted by: {{user.username}} on {{format_date date_created}}</p>
     </div>
     <div>
         <p>{{description}}</p>
@@ -14,7 +14,7 @@
     </div>
     <div>
         <p>{{comment.description}}</p>
-        <p>- {{comment.user.username}} on {{comment.date_created}}</p>
+        <p>- {{comment.user.username}} on {{format_date comment.date_created}}</p>
     </div>
 </div>
 {{/each}}
