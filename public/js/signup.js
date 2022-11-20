@@ -1,5 +1,3 @@
-const { response } = require("express");
-
 const signupFormHandler = async (event) => {
     //Prevents form being submitted via browser and refreshing
     event.preventDefault();
@@ -16,7 +14,7 @@ const signupFormHandler = async (event) => {
         });
 
         if(response.ok) {
-            document.location.replace('/api/users/dashboard');
+            document.location.replace('/');
         } else {
             alert(response.statusText)
         }

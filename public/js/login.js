@@ -16,7 +16,7 @@ const loginFormHandler = async (event) => {
         
         //Send user to user dashboard
         if (response.ok) {
-            document.location.replace('/api/users/dashboard');
+            document.location.replace('/');
         } else {
             alert(response.statusText)
         }
@@ -25,4 +25,4 @@ const loginFormHandler = async (event) => {
 
 document
   .querySelector('.login-form')
-  .addEventListener('#loginBtn', loginFormHandler);
+  .addEventListener('submit', loginFormHandler);
