@@ -3,8 +3,8 @@ const loginFormHandler = async (event) => {
     event.preventDefault();
 
     //Values from form
-    const username = document.querySelector('#username').value.trim();
-    const password = document.querySelector('#password').value.trim();
+    const username = document.querySelector('#usernameLogin').value.trim();
+    const password = document.querySelector('#passwordLogin').value.trim();
 
     //Checks is username and password values are present, if true run post route
     if (username && password) {
@@ -25,4 +25,4 @@ const loginFormHandler = async (event) => {
 
 document
   .querySelector('.login-form')
-  .addEventListener('submit', loginFormHandler);
+  .addEventListener('#loginBtn', loginFormHandler);
