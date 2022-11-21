@@ -21,37 +21,5 @@ router.get('/', async (req, res) => {
     }
 })
 
-//Need a route for specific blog posts. /:id
-router.get('/post/:id', async (req, res) => {
-    try {
-        const postData = await Post.findByPk(req.params.id, {
-            include: [
-                {
-                    model: User,
-                    attributes: ['username']
-                },
-                {
-                    model: Comment,
-                    attributes: ['description', 'date_created'],
-                    include: [
-                        {                        
-                            model: User,
-                            attributes: ['username']
-                        }
-                    ]
-                },
-            ]
-        });
-
-        const post = postData.get({ plain: true });
-
-        res.render('post', {
-            ...post,
-            logged_in: req.session.logged_in
-        });
-    } catch (error) {
-        res.status(500).json(error)
-    }
-})
 
 module.exports = router
