@@ -54,11 +54,4 @@ router.get('/post/:id', async (req, res) => {
     }
 })
 
-
-//Need a route for profile dashboard that shows all blog posts form that user
-
-
-
-
-
 module.exports = router

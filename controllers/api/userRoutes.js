@@ -76,6 +76,10 @@ router.post('/login', async (req, res) => {
 
 //See user profile/dash while signed in as that user. 
 router.get('/dashboard', withAuth, async (req,res) => {
+  if (!req.session.logged_in) {
+    res.redirect('/users/login')
+  }
+
   try {
     //If not working, try req.session.id
     const userData = await User.findByPk(req.session.user_id, {
@@ -89,6 +93,7 @@ router.get('/dashboard', withAuth, async (req,res) => {
       ...user,
       logged_in: true
     });
+    console.log(user);
   } catch (error) {
     res.status(500).json(error)
   }
