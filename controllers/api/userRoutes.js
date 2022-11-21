@@ -77,7 +77,7 @@ router.post('/login', async (req, res) => {
 //See user profile/dash while signed in as that user. 
 router.get('/dashboard', withAuth, async (req,res) => {
   if (!req.session.logged_in) {
-    res.redirect('/users/login')
+    res.redirect('/api/users/login')
   }
 
   try {

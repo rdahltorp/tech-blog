@@ -1,11 +1,11 @@
 {{#each posts as |post| }}
-<div>
-    <div>
-        <h2><a href="/post/{{post.id}}">{{post.title}}</a></h2>
-        <p>Posted by: {{post.user.username}} on {{format_date post.date_created}}</p>
+<div class="card border-info mb-3">
+    <div class="card-header">
+        <h2 class="card-title"><a href="/post/{{post.id}}" class="text-reset text-decoration-none">{{post.title}}</a></h2>
+        <p class="card-text">Posted by: {{post.user.username}} on {{format_date post.date_created}}</p>
     </div>
-    <div>
-        <p>{{post.description}}</p>
+    <div class="card-body">
+        <p class="card-text">{{post.description}}</p>
     </div>
 </div>
 {{/each}}

@@ -2,19 +2,19 @@
     <h3>Login</h3>
     <form class="login-form">
         <div>
-            <label for="username">Username: </label>
-            <input type="text" name="username" id="usernameLogin">
+            <label for="username" class="form-label">Username: </label>
+            <input type="text" name="username" id="usernameLogin" class="form-control">
         </div>
         <div>
-            <label for="username">Password: </label>
-            <input type="password" name="password" id="passwordLogin">
+            <label for="password" class="form-label">Password: </label>
+            <input type="password" name="password" id="passwordLogin" class="form-control">
         </div>
         <div>
-            <button type="submit" id="loginBtn">Login</button>
+            <button type="submit" id="loginBtn" class="btn btn-outline-dark">Login</button>
         </div>
     </form>
-    <p>New here?</p>
-    <button><a href="/api/users/signup">Sign Up</a></button>
+    <h4>New here?</h4>
+    <button class="btn btn-outline-dark"><a href="/api/users/signup" class="text-reset text-decoration-none">Sign Up</a></button>
 </div>
 
 <script src="/js/login.js"></script>
