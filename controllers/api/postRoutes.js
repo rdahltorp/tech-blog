@@ -56,7 +56,6 @@ router.delete('/:id', withAuth, async (req, res) => {
         const postData = await Post.destroy({
             where: {
                 id: req.params.id,
-                user_id: req.session.user_id
             }
         });
 
@@ -71,7 +70,7 @@ router.delete('/:id', withAuth, async (req, res) => {
     }
 })
 
-//Updates post based on id
+//Updates post based on id - not implemeneted yet - need js functionality
 router.put('/:id', withAuth, async (req, res) => {
     try {
         const postNewData = await Post.update({

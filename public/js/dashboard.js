@@ -1,20 +1,46 @@
-//New Post 
+//New Post functionality
 const newPostHandler = async (event) => {
     event.preventDefault();
 
-    const title = document.querySelector('#post-title').value.trim();
-    const description = document.querySelector('#post-description').value.trim();
-    const userId = req.session.id; //not sure if this is right
+    const title = document.querySelector('#title-np').value.trim();
+    const description = document.querySelector('#description-np').value.trim();
+    
+    if (title && description) {
+        const response = await fetch('/api/post', {
+            method: 'POST',
+            body: JSON.stringify({ title, description }),
+            headers: { 'Content-Type': 'application/json' }
+        })
 
-    //Need to create a route that adds a new post
-
+        if (response.ok) {
+            document.location.replace('/');
+        } else {
+            alert(response.statusText)
+        }
+    };
 }
+
+document.querySelector('.newPost-form').addEventListener('submit', newPostHandler);
 
 
 //Update Post
 
-    //Need to create a route that updates a post
 
 //Delete Post
+const delPostHandler = async (event) => {
+    if(event.target.hasAttribute('data-id')) {
+        const id = event.target.getAttribute('data-id');
 
-    //Need to create a route that destroys a post
+        const response = await fetch(`/api/post/${id}`, {
+            method: 'DELETE',
+          });
+
+          if (response.ok) {
+            document.location.replace('/');
+        } else {
+            alert(response.statusText)
+        }
+    }
+}
+
+document.querySelector('#deleteBtn').addEventListener('click', delPostHandler);
