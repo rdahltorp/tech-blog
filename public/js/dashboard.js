@@ -23,7 +23,7 @@ const newPostHandler = async (event) => {
 document.querySelector('.newPost-form').addEventListener('submit', newPostHandler);
 
 
-//Update Post
+//Update Post - to come
 
 
 //Delete Post

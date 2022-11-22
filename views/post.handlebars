@@ -21,13 +21,14 @@
 
 {{#if logged_in}}
 <div>
+    <h3>Leave a Comment!</h3>
     <form class="comment-form">
         <div>
-            <label for="description">Comment: </label>
-            <input type="text" name="description" id="commentDesc">
+            <label for="description" class="form-label">What would you like to say?</label>
+            <input type="text" name="description" id="comment-description" class="form-control">
         </div>
         <div>
-            <button href="" class="btn btn-outline-dark">Add a Comment</button>
+            <button type="submit" id="commentBtn" class="btn btn-outline-dark">Add Comment</button>
         </div>
     </form>
 </div>
