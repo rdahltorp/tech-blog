@@ -25,21 +25,18 @@ Then run 'npm start' to fire up the application. Once active the app will be loc
 
 Users can use this application to learn more about coding topics from other users. Once registered, users have the ability to fillu interact with the content on the blog from creating new posts to commenting.
 
-For a better look at this application, see the demo below, or visit this link to see it live: 
-
-** ADD IN THE DEMO AND LINK TO HEROKU **
+For a better look at this application, see the demo below, or visit this link to see it live: https://fast-woodland-06373.herokuapp.com/
 
 
-    ```md
-    ![alt text](assets/images/screenshot.png)
-    ```
+![Demo of application](./assets/images/tech-blog-demo.gif)
 
 
 ## Features
 
-Key faetures of this application include:
+Key features of this application include:
 
-- Cookies and session data to allow authorized users special interactions like comments and creating new posts. 
+- Cookies and session data to allow authorized users special interactions like comments and creating new posts. Editing existing posts feature coming soon.
 
-– The cookie has an expiration to imporve security so after being idle for 5 minutes the user will need to login again. 
+
+- The cookie has an expiration to imporve security so after being idle for 5 minutes the user will need to login again. 
 
