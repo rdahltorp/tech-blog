@@ -81,7 +81,6 @@ router.get('/dashboard', withAuth, async (req,res) => {
   }
 
   try {
-    //If not working, try req.session.id
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ['password'] },
       include: [{ model: Post }],
@@ -98,9 +97,6 @@ router.get('/dashboard', withAuth, async (req,res) => {
   }
 });
 
-///////////////////////////
-
-//Is this where this should go?? Or should it go in the dashboardRoutes?
 //Creates new post when logged in.
 router.post('/dashboard', withAuth, async (req, res) => {
   try {
@@ -115,7 +111,6 @@ router.post('/dashboard', withAuth, async (req, res) => {
   }
 });
 
-//Is this where this should go?? Or should it go in the dashboardRoutes?
 //Deletes post based on ID
 router.delete('/dashboard/:id', withAuth, async (req, res) => {
   console.log(req.params);
@@ -137,7 +132,6 @@ router.delete('/dashboard/:id', withAuth, async (req, res) => {
   }
 })
 
-//Is this where this should go?? I have a copy of it in postRoutes.
 //Updates post based on id - not implemeneted yet - need js functionality
 router.put('/:id', withAuth, async (req, res) => {
   try {
@@ -153,9 +147,6 @@ router.put('/:id', withAuth, async (req, res) => {
       res.status(500).json(error);
   }
 })
-
-
-///////////////////////////
 
 
 //Logout user

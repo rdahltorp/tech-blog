@@ -3,19 +3,18 @@ const newComment = async (event) => {
     event.preventDefault();
 
     const description = document.querySelector('#comment-description').value.trim();
-    const post_id = document.querySelector('#commentBtn').dataset.id
-    const user_id = event.target.dataset.user_id;
+    const postTitle = document.querySelector('.card-title');
+    let post_id = postTitle.getAttribute('data-id')
 
-    console.log(post_id);
     if (description) {
-        const response = await fetch(`/post/${post_id}`, {
+        const response = await fetch(`/api/post/:id`, {
             method: 'POST',
-            body: JSON.stringify({ description, post_id, user_id }),
+            body: JSON.stringify({ description, post_id }),
             headers: { 'Content-Type': 'application/json' }
         })
 
         if (response.ok) {
-            document.location.replace('/');            
+            document.location.reload();            
         } else {
             alert(response.statusText)
         }

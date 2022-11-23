@@ -1,6 +1,6 @@
 <div class="card border-info mb-3">
     <div class="card-header">
-        <h2 class="card-title">{{title}}</h2>
+        <h2 class="card-title" data-id="{{id}}">{{title}}</h2>
         <p class="card-text">Posted by: {{user.username}} on {{format_date date_created}}</p>
     </div>
     <div class="card-body">
@@ -19,6 +19,7 @@
 </div>
 {{/each}}
 
+{{#if logged_in}}
 <div>
     <h3>Leave a Comment!</h3>
     <form class="comment-form">
@@ -27,9 +28,10 @@
             <input type="text" name="description" id="comment-description" class="form-control">
         </div>
         <div>
-            <button data-id="{{post.id}}" data-user_id="{{user.id}}" type="submit" id="commentBtn" class="btn btn-outline-dark">Add Comment</button>
+            <button type="submit" class="btn btn-outline-dark">Add Comment</button>
         </div>
     </form>
 </div>
 
 <script src="/js/comment.js"></script>
+{{/if}}
