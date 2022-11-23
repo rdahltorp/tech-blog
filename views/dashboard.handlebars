@@ -5,21 +5,22 @@
     
     {{#if posts.length}}
     <h2 class="pastPosts">Your Previous Posts:</h2>
-
-        {{#each posts as |post|}}
-        <div class="card border-info mb-3">
-            <div class="card-header">
-                <h2 class="card-title"><a href="/api/post/{{post.id}}" class="text-reset text-decoration-none">{{post.title}}</a></h2>
-                <p>Posted by: {{post.user.username}} on {{format_date post.date_created}}</p>
+        <div class="postWrapper">
+            {{#each posts as |post|}}
+            <div class="card border-info mb-3">
+                <div class="card-header">
+                    <h2 class="card-title"><a href="/api/post/{{post.id}}" class="text-reset text-decoration-none">{{post.title}}</a></h2>
+                    <p>Posted by: {{post.user.username}} on {{format_date post.date_created}}</p>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">{{post.description}}</p>
+                </div>
             </div>
-            <div class="card-body">
-                <p class="card-text">{{post.description}}</p>
+            <div>
+                <button class="btn btn-outline-dark deleteBtn" data-id="{{post.id}}">Delete Post</button>
             </div>
+            {{/each}}
         </div>
-        <div>
-            <button class="btn btn-outline-dark" id="deleteBtn" data-id="{{post.id}}">Delete Post</button>
-        </div>
-        {{/each}}
     {{/if}}
     <div>
         <h3>Create a New Post!</h3>
@@ -38,3 +39,5 @@
         </form>
     </div>
 </div>
+
+<script src="/js/dashboard.js"></script>

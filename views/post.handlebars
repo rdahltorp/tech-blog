@@ -19,7 +19,6 @@
 </div>
 {{/each}}
 
-{{#if logged_in}}
 <div>
     <h3>Leave a Comment!</h3>
     <form class="comment-form">
@@ -28,8 +27,9 @@
             <input type="text" name="description" id="comment-description" class="form-control">
         </div>
         <div>
-            <button type="submit" id="commentBtn" class="btn btn-outline-dark">Add Comment</button>
+            <button data-id="{{post.id}}" data-user_id="{{user.id}}" type="submit" id="commentBtn" class="btn btn-outline-dark">Add Comment</button>
         </div>
     </form>
 </div>
-{{/if}}
+
+<script src="/js/comment.js"></script>
